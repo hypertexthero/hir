@@ -80,21 +80,20 @@
                     </div>
 
                 <p class="subdued">
-                    By <strong><a href="/posts/{{ post.author.username }}/">
-                            {% if post.author.get_profile.name %}
-                                   {{ post.author.get_profile.name }}
-                                   {% else %}
-                                   {{post.author.username}}
-                            {% endif %}
-                        </a></strong>
-                    {# <span class="small quiet">(<a class="quiet" href="/profiles/{{ post.author.username }}" title="See {{ post.author.username }}&rsquo;s profile.">Profile</a>)</span>  #}
-                    <a href="{{ post.get_absolute_url }}" class="post_link" title="Permanent link to this entry.">{{ post.updated_at|date:"D, d M Y, H:i"}}</a>
+                    By <strong><a href="/posts/{{ post.author.username }}/">{% if post.author.get_profile.name %}{{ post.author.get_profile.name }}{% else %}{{post.author.username}}{% endif %}</a></strong> 
+                    <br><a href="{{ post.get_absolute_url }}" class="post_link" title="Permanent link to this entry.">{{ post.updated_at|date:"D, d M Y, H:i"}}</a>
                 </p>
 
 
                 {{ post.content_html|safe }}
             
+
+
+
             {% else %} {# or a link: #}
+
+
+
 
             <p><b><a href="{{ post.url }}">{{ post.title }}</a></b> <span class="smaller quiet">({{post.url|rootdomain}})</span></p>
             <p class="smaller"><a href="{{ post.get_absolute_url }}" class="post_link" title="Permanent link to this entry.">{{ post.created_at|date:"D, d M Y, H:i"}} GMT {{post.created_at|date:"O"}}</a></p>
@@ -160,27 +159,21 @@
         </div>
 
        <div class="span4">
+            {% ifnotequal post.author request.user %}
+                    {% if post.author.get_profile.user_photo %}
+                    {% load thumbnail %}
+                    <p><a href="/profiles/{{post.author.username}}"><img class="player-img" src="{% thumbnail post.author.get_profile.user_photo 260x180 crop %}" /></a></p>{% endif %}
 
-
-{% ifnotequal post.author request.user %}
-        {% if post.author.get_profile.user_photo %}
-        {% load thumbnail %}
-        <p><a href="/profiles/{{post.author.username}}"><img class="player-img" src="{% thumbnail post.author.get_profile.user_photo 260x180 crop %}" /></a></p>{% endif %}
-
-        <p class="lead">
-By
-<a href="/posts/{{ post.author.username }}/" title="See this authors's Hot In Rome">{# http://stackoverflow.com/a/9667189/412329 #}{% if post.author.get_profile.name %}{{ post.author.get_profile.name }}{% else %}{{post.author.username}}{% endif %}&rsquo;s</a> <br />
-        {# {% if post.author.get_profile.name %}{{ post.author.get_profile.name }}{% else %}{{post.author.username}}{% endif %}&rsquo;s  #}
-
-
-        {# <span class="small normal">Hot In Rome Links &amp; Articles</span> #}
-        </p>
-        <p class="subdued">
-        {% if post.author.get_profile.date_joined %}<b>Member since:</b> {{post.author.get_profile.date_joined|date:"j F Y"}}{% endif %}    
-        <br>
-        <a href="/profiles/{{post.author.username}}" title="Profile."><i class="icon-user"></i> Profile</a> <a href="/posts/{{post.author.username}}"><i class="icon-list"></i> Posts</a>
-        </p>
-{% endifnotequal %}
+                    <p class="lead subdued">
+                        {# http://stackoverflow.com/a/9667189/412329 #}
+                        {% if post.author.get_profile.name %}{{ post.author.get_profile.name }}{% else %}{{post.author.username}}{% endif %}
+                    </p>
+                    <p class="subdued">
+                    {% if post.author.get_profile.date_joined %}Member since: {{post.author.get_profile.date_joined|date:"j F Y"}}{% endif %}    
+                    <br>
+                    <a href="/profiles/{{post.author.username}}" title="Profile."><i class="icon-user"></i> Profile</a> <a href="/posts/{{post.author.username}}"><i class="icon-list"></i> Posts</a>
+                    </p>
+            {% endifnotequal %}
 
             {% ifequal post.author request.user %}
                 <p class="meta well">
@@ -190,13 +183,13 @@ By
                      {% if post.status == 1 %}
                         <br>
                         {# <b class="tip">{% trans "This post is an unpublished draft." %}</b> #}
-                        <a href="{% url blog_change_status 'public' post.id %}" class="inline_action btn tip"><i class="icon-ok"></i> {% trans "publish?" %}</a>
+                        <a href="{% url blog_change_status 'public' post.id %}"><i class="icon-ok"></i> {% trans "publish" %}</a>
                         {# {% else %} #}
                         {# <a href="{% url blog_change_status 'draft' post.id %}" class="inline_action btn tip">{% trans "make draft?" %}</a> #}
                         {% else %}
                         <br>
                         {# {% trans "This post is currently Live." %} #}
-                        <a href="{% url blog_change_status 'draft' post.id %}" class="inline_action btn tip"><i class="icon-inbox"></i> {% trans "move to drafts?" %}</a>
+                        <a href="{% url blog_change_status 'draft' post.id %}"><i class="icon-inbox"></i> {% trans "move to drafts" %}</a>
                     {% endif %}
                     <br>
                     <a href="{% url blog_delete post.id %}"><i class="icon-remove"></i> delete</a> 
