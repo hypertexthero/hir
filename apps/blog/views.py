@@ -12,7 +12,7 @@ from django.conf import settings
 from django.db.models import Q, Count # http://stackoverflow.com/a/1217911/412329
 
 # from misc.json_encode import json_response
-from hotinrome.apps.blog.models import Post, Vote, IS_DRAFT, IS_PUBLIC, EVERYTHING, EAT, SLEEP, SOCIALIZE, EXERCISE, SHOP, WORK
+from hotinrome.apps.blog.models import Post, Vote, IS_DRAFT, IS_PUBLIC, EVERYTHING, EAT, SLEEP, SOCIALIZE, EXERCISE, ART#, SHOP, WORK
 from hotinrome.apps.profiles.models import Profile
 from hotinrome.apps.blog.forms import PostForm
 from hotinrome.apps.blog.signals import post_published
@@ -278,22 +278,31 @@ def exercise(request):
         extra_context= {"profile": get_profiles}
     )
 
-def shop(request): 
-    """shop category"""
+def art(request): 
+    """art category"""
     return object_list(request, 
-        queryset=Post.hot.most_loved().filter(category=SHOP)[:300], 
-        template_name='category-shop.html',
+        queryset=Post.hot.most_loved().filter(category=ART)[:300], 
+        template_name='category-art.html',
         template_object_name='post',
         extra_context= {"profile": get_profiles}
     )
 
-def work(request): 
-    """work category"""
-    return object_list(request, 
-        queryset=Post.hot.most_loved().filter(category=WORK)[:300], 
-        template_name='category-work.html',
-        template_object_name='post',
-        extra_context= {"profile": get_profiles}
-    )
+# def shop(request): 
+#     """shop category"""
+#     return object_list(request, 
+#         queryset=Post.hot.most_loved().filter(category=SHOP)[:300], 
+#         template_name='category-shop.html',
+#         template_object_name='post',
+#         extra_context= {"profile": get_profiles}
+#     )
+
+# def work(request): 
+#     """work category"""
+#     return object_list(request, 
+#         queryset=Post.hot.most_loved().filter(category=WORK)[:300], 
+#         template_name='category-work.html',
+#         template_object_name='post',
+#         extra_context= {"profile": get_profiles}
+#     )
 
 

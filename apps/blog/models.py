@@ -40,8 +40,9 @@ EAT = 2
 SLEEP = 3 
 SOCIALIZE = 4
 EXERCISE = 5
-SHOP = 6
-WORK = 7
+ART = 6
+# SHOP = 6
+# WORK = 7
 
 CATEGORY_CHOICES = (
     (EVERYTHING, _("Everything")), 
@@ -49,8 +50,9 @@ CATEGORY_CHOICES = (
     (SLEEP, _("Sleep")),
     (SOCIALIZE, _("Socialize")),
     (EXERCISE, _("Exercise")),
-    (SHOP, _("Shop")),
-    (WORK, _("Work")),
+    (ART, _("Art")),
+    # (SHOP, _("Shop")),
+    # (WORK, _("Work")),
 )
 
 KIND = (
