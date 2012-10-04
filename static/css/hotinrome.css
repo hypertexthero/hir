@@ -1,6 +1,6 @@
 body {padding-top: 0; background:#f3f0ea; color:#2e2a1f; font-family:verdana, sans-serif;}
  /*url(/static/img/background.jpg) repeat 0 0;*/
-a.brand {font-size:1.2em !important; vertical-align:middle; color:#c00; font-family:georgia, serif; letter-spacing:0.1em; color:#bbb !important;}
+a.brand {font-size:1.2em !important; vertical-align:middle; color:#c00; font-family:georgia, serif; letter-spacing:0.1em; color:#bbb !important; background:url(/static/img/hotinrome-colosseo.png) no-repeat 0 10px; margin-left:8px !important; padding-left:26px !important;}
 body.home a.brand {color:#fff !important;}
 p, li, .btn {line-height:1.7em;}
 div.post {max-width:39em;}
