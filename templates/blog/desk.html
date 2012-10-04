@@ -13,11 +13,12 @@
     
     <!-- Masthead
     ================================================== -->
-    <header class="jumbotron subhead" id="overview">
-      <h1 class="normal">My Hot In Rome Desk</h1>
-    </header>
+    {# <header class="jumbotron subhead" id="overview"> #}
+      {# <h1>My Hot In Rome Desk</h1> #}
+      {# <p class="pull-right"><a class="btn btn-primary" href="/post/"><i class="icon-pencil icon-white"></i> Post new link or article</a></p> #}
+    {# </header> #}
     
-    <p class="pull-right"><a class="btn btn-primary" href="/post/"><i class="icon-pencil"></i> Post new link or article</a></p>
+    
         {% regroup post_list|dictsort:"status" by status as posts_by_status %}
 
                     {# get ready for displaying score #}            
@@ -46,7 +47,7 @@
                                 <b><a href="{{ post.get_absolute_url }}" class="post_link_small" title="View post">{{ post.title }}</a></b>{% if post.allow_comments %} <span class="smaller quiet"> <a href="{{ post.get_absolute_url }}#disqus_thread"></a></span>{% endif %}
 
                                 <span class="smaller quiet">
-                                    <a href="{% url blog_edit post.id %}" title="Edit post">{% trans "edit" %}</a>|<a href="{% url blog_delete post.id %}" title="Delete post">{% trans "delete" %}</a>|{% if post.is_public %}<a href="{% url blog_change_status 'draft' post.id %}" title="Make post a draft (not listed publically)">{% trans "make draft" %}</a>{% else %}<a href="{% url blog_change_status 'public' post.id %}" title="Publish post"></i>{% trans "publish" %}</a>{% endif %}
+                                    <a href="{% url blog_edit post.id %}" title="Edit post">{% trans "edit" %}</a> | <a href="{% url blog_delete post.id %}" title="Delete post">{% trans "delete" %}</a> | {% if post.is_public %}<a href="{% url blog_change_status 'draft' post.id %}" title="Make post a draft (not listed publically)">{% trans "make draft" %}</a>{% else %}<a href="{% url blog_change_status 'public' post.id %}" title="Publish post"></i>{% trans "publish" %}</a>{% endif %}
                                 </span>
                             </td>
                             <td>
@@ -54,7 +55,7 @@
                                 {% dict_entry_for_item post from score_dict as score %}
 
                                 {# score ========================= #}
-                                <p class="votes">
+                                <p class="votes alignleft">
                                     {% if score.num_votes %}
                                         {{ score.num_votes|default:0 }} {# vote{{ score.num_votes|default:0|pluralize }} #}
                                         {% else %}

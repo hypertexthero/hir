@@ -71,8 +71,11 @@
                                             <li><a class="brand" href="{% url "home" %}" title="Hot In Rome - top posts">Hot In Rome</a></li>
                                             {# <li{% active request "^/$" %}><a href="/" title="Most popular entries - the Hot In Rome homepage">Hot</a></li> #}
                                             <li{% active request "^/new/$" %}><a href="/new/" title="Latest Posts">New</a></li>
-{#                                             <li{% active request "^/ask/$" %}><a href="/ask/" title="Ask anything about Rome">Ask</a></li> #}
-                                            {# <li{% active request "^/work/$" %}><a href="/work/" title="Top Work Entries">Work</a></li> #}
+                                            
+                                            {% comment %}
+
+                                            <li{% active request "^/ask/$" %}><a href="/ask/" title="Ask anything about Rome">Ask</a></li>
+                                            <li{% active request "^/work/$" %}><a href="/work/" title="Top Work Entries">Work</a></li>
 
     
 
@@ -86,6 +89,7 @@
 
 
                                             {# <li{% active request "^/faq/$" %}><a href="/faq/" title="Frequently asked questions.">Faq</a></li> #}
+                                            {% endcomment %}
                                         </ul>
                                 {% endblock %}
                             {# </div> #}
@@ -124,7 +128,10 @@
                                 <input class="input-large search-query" type="text" name="q" id="id_q" size="30" placeholder="keyword(s)" /> 
                                 <button type="submit" class="btn">Search</button>
                             </form>
-                            <p class="small quiet">Original entries &amp; comments copyright © by their authors. 
+                            <p class="small quiet">
+                                Recent posts with most <strong class="subdued" style="font-family:'courier new', courier, monospace;">&and;</strong>upvotes are on the <a href="/">homepage</a>. Newest posts are in <a href="/new/">new</a>.
+                                <br>
+                                Original entries &amp; comments copyright © by their authors. 
                                 <br>
                                 Thank you for visiting <a class="quiet" href="/">hotinrome.com</a>, dear reader.
                                 <br>

@@ -6,6 +6,8 @@ Check it out at: <http://hotinrome.com>
 
 ## Todo now
 
+- Application-native comments, ability to vote on comments
+- User karma system - users with karma above a certain threshold get new abilities such as downvotes
 - Set up fabric deployment
 
 ## Todo in Future (upcoming features)

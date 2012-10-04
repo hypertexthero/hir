@@ -15,7 +15,7 @@
 <form class="customform" id="add_post" method="POST" action="{% url blog_add %}">
     {% csrf_token %}
     <fieldset>
-        <legend>New Post</legend>  
+        {# <legend>New Post</legend>   #}
         {# {{ post_form|as_bootstrap }} #}
         {% include "blog/entry_form.html" %}
         

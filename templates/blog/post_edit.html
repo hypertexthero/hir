@@ -16,7 +16,7 @@
 <form class="customform" id="add_post" method="POST" action="{% url blog_edit post.id %}">
     {% csrf_token %}
   <fieldset>
-        <legend>Editing post titled</span> &ldquo;{{ post.title }}&rdquo;</legend>  
+        <legend>Editing <b>&ldquo;{{ post.title }}&rdquo;</b>, last updated on {{post.updated_at}}</legend>  
         {# {{ post_form|as_bootstrap }} #}
             
         {% include "blog/entry_form.html" %}
