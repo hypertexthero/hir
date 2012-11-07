@@ -28,7 +28,7 @@
     // The text that appears on the upper part of the dialog box when
     // entering links.
     var linkDialogText = "<p>http://example.com/ \"optional title\"</p>";
-    var imageDialogText = "<p>First upload your image to <a href='http://imgur.com'>imgur.com</a> or another image hosting service. Then paste the link to the image here. For example:</p><p>http://i.imgur.com/j7QY7.jpg \"optional title\"</p>";
+    var imageDialogText = "<p>First upload your image to <a href='http://imgur.com' onclick='window.open(this.href, this.target); return false;'>imgur.com</a> or another image hosting service. Then paste the link to the image here. For example:</p><p>http://i.imgur.com/j7QY7.jpg \"optional title\"</p>";
 
     // The default text that appears in the dialog input box when entering
     // links.
