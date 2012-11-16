@@ -12,6 +12,7 @@ blockquote p {font-size:1em;}
 p + p {margin-bottom:1em;}
 div.navbar, div.navbar-fixed-top {position:relative !important; text-transform:uppercase; font-size:0.9em; letter-spacing:0.1em; /*background: #993300;*/}
 ul.nav {}
+div.navbar-inner {border-radius:0;}
 
 img.player-img {border:2px solid #2e2a1f;}
 b, strong {font-weight:bold;}
