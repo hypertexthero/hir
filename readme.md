@@ -6,6 +6,7 @@ Check it out at: <http://hotinrome.com>
 
 ## Todo now
 
+- **Implement [Mozilla Persona for authentication](https://developer.mozilla.org/en-US/docs/Mozilla/Persona/Why_Persona)**
 - Application-native comments, ability to vote on comments
 - User karma system - users with karma above a certain threshold get new abilities such as downvotes
 - Set up fabric deployment
