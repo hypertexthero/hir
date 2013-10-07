@@ -2,7 +2,7 @@
 
 Naively-built website inspired by a well-known geek site to share and follow <a href="http://hotinrome.com">Rome</a> links and stories.
 
-Check it out at: <http://hotinrome.com>
+Check it out at: <http://rome.hypertexthero.com>
 
 ## Todo now
 
