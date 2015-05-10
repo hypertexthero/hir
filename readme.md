@@ -2,8 +2,6 @@
 
 Naively-built website inspired by a well-known geek site to share and follow <a href="http://hotinrome.com">Rome</a> links and stories.
 
-Check it out at: <http://rome.hypertexthero.com>
-
 ## Todo now
 
 - **Implement [Mozilla Persona for authentication](https://developer.mozilla.org/en-US/docs/Mozilla/Persona/Why_Persona)**
