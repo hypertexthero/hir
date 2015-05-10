@@ -1,6 +1,6 @@
 # Hot in Rome
 
-Naively-built website inspired by a well-known geek site to share and follow <a href="http://hotinrome.com">Rome</a> links and stories.
+Naively-built website inspired by a well-known geek site to share and follow Rome links and stories.
 
 ## Todo now
 
